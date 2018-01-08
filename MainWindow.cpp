@@ -21,12 +21,13 @@ void MainWindow::wake()
     QString broad = ui->broad_field->text();
     
     // Parse/validate MAC
-    if (mac.length() != 17) {
+    auto mc = mac.toStdString();
+    if (mc.size() != 17) {
         QMessageBox::warning(this, tr("Warning"), tr("Invalid MAC Address"));
         return;
     }else{
         for (int i=2; i<=14; i+=3){
-            if (mac[i].toAscii() != ':') {
+            if (mc[i] != ':') {
                 QMessageBox::warning(this, tr("Warning"), tr("Invalid MAC Address"));
                 return;
             }
@@ -35,7 +36,7 @@ void MainWindow::wake()
     
     // QString to hex
     unsigned char macaddress[6];
-    sscanf(mac.toStdString().c_str(), 
+    sscanf(mc.c_str(), 
            "%hhx:%hhx:%hhx:%hhx:%hhx:%hhx",
            &macaddress[0],
            &macaddress[1],
