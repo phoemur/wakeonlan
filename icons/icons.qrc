@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>Wake-on-LAN.png</file>
+  </qresource>
+</RCC>
