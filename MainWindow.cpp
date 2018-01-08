@@ -26,7 +26,7 @@ void MainWindow::wake()
         return;
     }else{
         for (int i=2; i<=14; i+=3){
-            if (mac[i] != ":") {
+            if (mac[i].toAscii() != ':') {
                 QMessageBox::warning(this, tr("Warning"), tr("Invalid MAC Address"));
                 return;
             }
