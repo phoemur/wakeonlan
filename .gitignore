@@ -36,4 +36,5 @@ wakeonlan
 Makefile
 qrc_*.*
 moc_*.*
-
+.qmake.stash
+ui_MainWindow.*
